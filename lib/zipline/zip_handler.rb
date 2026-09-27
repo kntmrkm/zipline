@@ -56,7 +56,7 @@ module Zipline
     end
 
     def write_file(file, name, options)
-      @streamer.write_file(name, **options.slice(:modification_time)) do |writer_for_file|
+      @streamer.write_deflated_file(name, **options.slice(:modification_time)) do |writer_for_file|
         if file[:url]
           the_remote_uri = URI(file[:url])
 
